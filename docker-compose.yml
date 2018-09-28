@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+    db:
+        image: mariadb
+        environment:
+            - MYSQL_DATABASE=db
+            - MYSQL_USER=mysql
+            - MYSQL_PASSWORD=mysql
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - db_data:/var/lib/mysql/data
+        ports:
+            - "9906:3306"
+
+    web:
+        image: bjarkt/php-mysql
+        environment:
+            - ISINDOCKER=1
+        depends_on:
+            - db
+        volumes:
+            - ./projects/:/var/www/html/
+        ports:
+            - "8100:80"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        depends_on:
+            - db
+        links:
+            - db
+        ports:
+            - "9191:80"
+        environment:
+            - PMA_HOST=db
+            - MYSQL_USER=mysql
+            - MYSQL_PASSWORD=mysql
+            - MYSQL_ROOT_PASSWORD=root
+
+volumes:
+    db_data:
