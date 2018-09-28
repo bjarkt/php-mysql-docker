@@ -9,11 +9,8 @@ run `docker-compose up`
 - http://localhost:9191 - phpmyadmin
 
 ## SQL
-Login 1:
-  - username: mysql
-  - password: mysql
-
-
 Root login: 
   - username: root
   - password: root
+  
+Host: `mysql`
