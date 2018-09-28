@@ -8,11 +8,10 @@ run `docker-compose up`
 - http://localhost:8100/ - apache
 - http://localhost:9191 - phpmyadmin
 
-## Environment variables
-**Environment variables for mysql**
-```
-- MYSQL_DATABASE:db
-- MYSQL_USER:mysql
-- MYSQL_PASSWORD:mysql
-- MYSQL_ROOT_PASSWORD:root
-```
+## SQL
+Login 1:
+  - username: mysql
+  - password: mysql
+Root login: 
+  - username: root
+  - password: root
